@@ -13,3 +13,13 @@ def listen_udp(port=5005);
         except Exception as e:
             print(f"Error receiving packet: {e}")
 
+def start_listener():
+    thread = threading.Thread(target=listen_udp, daemon=True)
+    thread.start()
+    print("Listener thread started.")
+
+    while True:
+        pass
+
+if __name__ == "__main__":
+    start_listener()
