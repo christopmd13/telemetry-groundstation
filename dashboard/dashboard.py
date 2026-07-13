@@ -24,4 +24,15 @@ def listen_udp(port=5005):
                 })
         except Exception:
             continue
-        
+
+threading.Thread(target=listen_udp, daemon=True).start()
+
+st.title("Telemetry Dashboard")
+
+chart_placeholder = st.empty()
+
+while True:
+    if data:
+        df = pd.DataFrame(data)
+        st.line_chart(df.set_index("timestamp")[["altitude", "speed"]])
+        st.line_chart(df.set_index("timestamp")[["pitch", "yaw"]])
