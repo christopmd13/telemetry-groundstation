@@ -15,3 +15,26 @@ Streamlit dashboard with real‑time charts
 
 Separate charts for altitude/speed and pitch/yaw
 
+# Tech Stack
+
+C++ (native + C++/CLI bridge)
+
+Python (socket, threading, pandas)
+
+Streamlit (dashboard visualization)
+
+# Setup Instructions
+
+# Clone repo
+
+git clone https://github.com/christopmd13/telemetry-groundstation.git
+
+# Run listener
+
+python listener.py
+
+# Run dashboard
+
+streamlit run dashboard.py
+
+
