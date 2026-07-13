@@ -19,4 +19,15 @@ TelemetryPacket GenerateTelemetry() {
     return p;
 }
 
+#using <mscorlib.dll>
+using namespace System;
 
+public ref class TelemetryProcessor
+{
+public:
+    static void Process(double speed)
+    {
+        double smoothed = Math::Round(speed * 0.97, 2);
+        Console::WriteLine("Processed Speed (C#): {0}", smoothed);
+    }
+};
