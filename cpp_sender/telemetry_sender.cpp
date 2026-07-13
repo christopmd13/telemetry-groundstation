@@ -53,3 +53,8 @@ public:
     }
 };
 
+int main()
+{
+    TelemetryBridge::Run();
+    return 0;
+}
