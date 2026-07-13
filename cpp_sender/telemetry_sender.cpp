@@ -31,3 +31,25 @@ public:
         Console::WriteLine("Processed Speed (C#): {0}", smoothed);
     }
 };
+
+public ref class TelemetryBridge
+{
+public:
+    static void Run()
+    {
+        while (true)
+        {
+            TelemetryPacket p = GenerateTelemetry();
+
+            Console::WriteLine(
+                "Native C++: t={0} alt={1} speed={2}",
+                p.timestamp, p.altitude, p.speed
+            );
+
+            TelemetryProcessor::Process(p.speed);
+
+            System::Threading::Thread::Sleep(500);
+        }
+    }
+};
+
